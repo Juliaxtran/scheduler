@@ -10,9 +10,9 @@ const interviewerOptions = props.interviewers.map((interviewer) => {
   return (
     <InterviewerListItem key={interviewer.id}
     name={interviewer.name}
-    selected={props.interviewer === interviewer.id}
+    selected={interviewer.id === props.value}
     avatar={interviewer.avatar}
-    setInterviewer={()=>props.setInterviewer(interviewer.id)}
+    setInterviewer={()=> props.onChange(interviewer.id)}
     />
   )
 })
