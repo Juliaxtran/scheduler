@@ -14,13 +14,14 @@ function InterviewerListItem(props){
   })
 
 return (
-<li onClick={()=> props.setInterviewer(props.id)} key={props.id} className={listClass}>
+<li onClick={()=> props.setInterviewer(props.id)} className={listClass}>
   <img
     className="interviewers__item-image"
     src={props.avatar}
     alt={props.name}
   />
- {props.name}
+ {props.selected && props.name}
+ {/* {props.selected ? props.name : null} */}
 </li>
 );
 }
