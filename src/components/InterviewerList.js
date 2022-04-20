@@ -6,7 +6,7 @@ function InterviewerList(props){
 
 
 const interviewerOptions = props.interviewers.map((interviewer) => {
-  console.log("Condition", props.name === interviewer.name, "props.name", props.name ,"Interview", interviewer.name)
+
   return (
     <InterviewerListItem key={interviewer.id}
     name={interviewer.name}
