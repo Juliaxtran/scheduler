@@ -6,14 +6,7 @@ import Show from "components/Appointment/Show"
 import Empty from "components/Appointment/Empty"
 
 function Appointment(props) {
-  // const formatTime = (time) => {
-  //   if (!time) {
-  //     return `No appointments`
-  //   }
-  //   return `Appointment at ${time}`
-  // }
 
-  // const scheduleTime = formatTime(props.time);
   return (
   <Fragment>
     <Header time={props.time}/>
