@@ -8,7 +8,7 @@ import Empty from "./Appointment/Empty";
 import Appointment from "components/Appointment";
 import axios from 'axios';
 import { useEffect } from "react";
-import { getAppointmentsForDay, getInterview } from "../helpers/selectors"
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "../helpers/selectors"
 
 
 
@@ -22,6 +22,7 @@ export default function Application(props) {
   });
   const setDay = day => setState({ ...state, day });
 
+  // Api Call
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),
@@ -34,18 +35,23 @@ export default function Application(props) {
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
 
-  const appointmentList = dailyAppointments.map((appointment) => {
+  const schedule = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
+    const interviewers = getInterviewersForDay(state, state.day);
+    
     return (
       <Appointment
         key={appointment.id}
         id={appointment.id}
         time={appointment.time}
         interview={interview}
+        interviewers={interviewers}
       />
     )
   }
   );
+
+
   return (
     <main className="layout">
       <section className="sidebar">
@@ -69,7 +75,7 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {appointmentList}
+        {schedule}
       </section>
     </main>
   );

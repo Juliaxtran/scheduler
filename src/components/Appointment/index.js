@@ -4,8 +4,8 @@ import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
 import { Fragment } from "react";
-import useVisualMode from "hooks/useVisualMode";
 import Form from './Form';
+import useVisualMode from 'hooks/useVisualMode';
 
 
 function Appointment(props) {
@@ -31,7 +31,7 @@ function Appointment(props) {
         )}
          {mode === CREATE &&
          <Form
-         interviewers={[]}
+         interviewers={props.interviewers}
          onCancel={() => back(EMPTY)}
          />}
 
