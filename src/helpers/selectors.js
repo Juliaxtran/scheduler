@@ -16,13 +16,14 @@ export function getAppointmentsForDay(state, day) {
 
 }
 
+
 export function getInterview(state, interview) {
 
-  if(!interview) {
+  if (!interview) {
     return null;
   }
 
-const interviewInfo = state.interviewers[interview.interviewer]
+  const interviewInfo = state.interviewers[interview.interviewer]
 
   return {
     student: interview.student,
@@ -31,3 +32,16 @@ const interviewInfo = state.interviewers[interview.interviewer]
 
 }
 
+
+export function getInterviewersForDay(state, day) {
+  let InterviewersArr = [];
+  for (const currentDay of state.days) {
+    if (currentDay.name === day) {
+      InterviewersArr = currentDay.appointments;
+    }
+  }
+  const result = InterviewersArr.map(id => {
+    return state.appointments[id];
+  });
+  return result;
+}
