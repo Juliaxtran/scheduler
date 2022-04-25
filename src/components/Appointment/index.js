@@ -39,7 +39,7 @@ function Appointment(props) {
 
       props.bookInterview(props.id, interview)
         .then(() => transition(SHOW))
-        .catch(() => transition(ERROR_SAVE));
+        .catch(() => transition(ERROR_SAVE, true));
     }
 
   }
@@ -52,7 +52,7 @@ function Appointment(props) {
       transition(DELETING);
       props.cancelInterview(props.id)
         .then(() => transition(EMPTY))
-        .catch(() => transition(ERROR_DESTROY))
+        .catch(() => transition(ERROR_DESTROY, true))
     }
   }
 
@@ -97,11 +97,15 @@ function Appointment(props) {
         )}
         {mode === ERROR_SAVE &&
           (<Error
-            message="Could not save appointment" />
+            message="Could not save appointment"
+            onClose={back}
+            />
           )}
         {mode === ERROR_DESTROY &&
           (<Error
-            message="Could not delete appointment" />
+            message="Could not delete appointment"
+            onClose={back}
+            />
           )}
       </article >
     </Fragment>
