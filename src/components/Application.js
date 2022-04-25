@@ -3,15 +3,12 @@ import "components/Application.scss";
 import DayList from "./DayList";
 import { useState } from "react";
 import "components/Appointment";
-import Confirm from "./Appointment/Confirm";
-import Empty from "./Appointment/Empty";
+// import Confirm from "./Appointment/Confirm";
+// import Empty from "./Appointment/Empty";
 import Appointment from "components/Appointment";
 import axios from 'axios';
 import { useEffect } from "react";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "../helpers/selectors"
-
-
-
 
 
 export default function Application(props) {
@@ -36,6 +33,18 @@ export default function Application(props) {
 
   function bookInterview(id, interview) {
     console.log(id, interview);
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    setState({
+        ...state,
+        appointments
+      });
   }
 
 
