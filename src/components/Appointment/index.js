@@ -17,6 +17,7 @@ function Appointment(props) {
   const SAVING = "SAVING";
   const DELETING = "DELETING";
   const CONFIRM = "CONFIRM";
+  const EDIT = "EDIT";
 
 
   const { mode, transition, back } = useVisualMode(
@@ -48,6 +49,10 @@ function Appointment(props) {
     }
   }
 
+  const edit = () => {
+    transition(EDIT);
+  }
+
 
   return (
     <Fragment>
@@ -66,6 +71,7 @@ function Appointment(props) {
             student={props.interview.student}
             interviewer={props.interview.interviewer}
             onDelete={remove}
+            onEdit={edit}
           />
         )}
         {mode === CREATE && <Form
@@ -73,6 +79,15 @@ function Appointment(props) {
           onCancel={() => back(EMPTY)}
           onSave={save}
         />}
+     {mode === EDIT && (
+          <Form
+            name={props.interview.student}
+            interviewer={props.interview.interviewer.id}
+            onSave={save}
+            onCancel={back}
+            interviewers={props.interviewers}
+          />
+        )}
       </article >
     </Fragment>
   );
