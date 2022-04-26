@@ -37,7 +37,7 @@ return (
       />
     </form>
     <InterviewerList
-     interviewers={props.interviewers}
+     interviewers= {props.interviewers}
      value={interviewer}
      onChange={setInterviewer}
 
