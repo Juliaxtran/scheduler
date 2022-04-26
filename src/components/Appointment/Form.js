@@ -30,7 +30,7 @@ function validate() {
     setError("Please select an interviewer");
     return;
   }
-
+  setError("");
   props.onSave(student, interviewer);
 }
 
@@ -55,8 +55,6 @@ return (
      interviewers= {props.interviewers}
      value={interviewer}
      onChange={setInterviewer}
-
-
     />
   </section>
   <section className="appointment__card-right">
