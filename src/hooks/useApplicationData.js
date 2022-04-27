@@ -2,12 +2,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 export default function useApplicationData() {
+  // Set State
   const [state, setState] = useState({
     day: "Monday",
     days: [],
     appointments: {}
   });
   const setDay = day => setState({ ...state, day });
+
+  //Api Calls
 
   useEffect(() => {
     Promise.all([
@@ -19,9 +22,9 @@ export default function useApplicationData() {
     });
   }, []);
   function updateSpots(state, appointments, id) {
-    //find the day
+    //Find the day
     const dayObj = state.days.find(d => d.name === state.day);
-    //look at the appointment id
+    //Look at the appointment id
     let spots = 0;
     for (const id of dayObj.appointments) {
       const appointment = appointments[id];
@@ -35,7 +38,6 @@ export default function useApplicationData() {
     return days;
   };
   function bookInterview(id, interview) {
-    console.log(id, interview);
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }

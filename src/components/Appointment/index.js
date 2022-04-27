@@ -11,7 +11,7 @@ import Confirm from './Confirm';
 import Error from './Error';
 function Appointment(props) {
 
-  // Modes
+  // Mode Constants
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -27,23 +27,20 @@ function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
-  function save(name, interviewer) {
+  // Helper Functions
 
+  function save(name, interviewer) {
     if (name && interviewer) {
       transition(SAVING);
-
       const interview = {
         student: name,
         interviewer
       };
-
       props.bookInterview(props.id, interview)
         .then(() => transition(SHOW))
         .catch(() => transition(ERROR_SAVE, true));
     }
-
   }
-
 
   const remove = () => {
     if (mode === SHOW) {
@@ -65,6 +62,7 @@ function Appointment(props) {
     <Fragment>
       <Header time={props.time} />
       <article className="appointment">
+        {/* {Transition between different modes} */}
         {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
         {mode === SAVING && <Status message="Saving" />}
         {mode === DELETING && <Status message="Deleting" />}
@@ -99,16 +97,17 @@ function Appointment(props) {
           (<Error
             message="Could not save appointment"
             onClose={back}
-            />
+          />
           )}
         {mode === ERROR_DESTROY &&
           (<Error
             message="Could not delete appointment"
             onClose={back}
-            />
+          />
           )}
       </article >
     </Fragment>
   );
 }
+
 export default Appointment;

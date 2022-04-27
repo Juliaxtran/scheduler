@@ -45,7 +45,7 @@ const state = {
 }
 
 
-// Appointment for day Tests
+// Appointment for day tests
 test("getAppointmentsForDay returns an array", () => {
   const result = getAppointmentsForDay(state, "Monday");
   expect(Array.isArray(result)).toBe(true);
