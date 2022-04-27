@@ -8,6 +8,7 @@ function Form(props) {
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
 
+  //Button Functionality and Validation
   const reset = () => {
     setStudent("");
     setInterviewer(null);

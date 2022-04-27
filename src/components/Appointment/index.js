@@ -62,7 +62,7 @@ function Appointment(props) {
     <Fragment>
       <Header time={props.time} />
       <article className="appointment">
-        {/* {Transition between different modes} */}
+        {/* Transition between different modes */}
         {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
         {mode === SAVING && <Status message="Saving" />}
         {mode === DELETING && <Status message="Deleting" />}

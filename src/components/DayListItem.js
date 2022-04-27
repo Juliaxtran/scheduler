@@ -9,6 +9,7 @@ export default function DayListItem(props) {
     "day-list__item--full": props.spots === 0
   })
 
+  // Spots Messaging
   const formatSpots = (spots) => {
 
     if (!spots) {

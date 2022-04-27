@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 function InterviewerList(props) {
 
-
+  // Map over interviewers
   const interviewerOptions = props.interviewers.map((interviewer) => {
 
     return (
@@ -28,6 +28,7 @@ function InterviewerList(props) {
   );
 }
 
+// Prop Requirement
 InterviewerList.propTypes = {
   interviewers: PropTypes.array.isRequired
 };
