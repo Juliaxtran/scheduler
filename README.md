@@ -27,6 +27,6 @@ Would you like to try the Interview Scheduler? Follow these easy steps to get it
 - Cypress
 
 ## Screenshots
-!["Screen shot of main page"]
-!["Screen shot of form"]
-!["Screen shot of confirmation"]
+!["Screen shot of main page"](https://github.com/Juliaxtran/scheduler/blob/master/docs/main-page.png?raw=true)
+!["Screen shot of form"](https://github.com/Juliaxtran/scheduler/blob/master/docs/form.png?raw=true)
+!["Screen shot of confirmation"](https://github.com/Juliaxtran/scheduler/blob/master/docs/confirmation.png?raw=true)
